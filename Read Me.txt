@@ -1,0 +1,20 @@
+Enabling Macros in Excel:
+--------------------------
+Microsoft Excel 2007
+----------
+1. Security Warning : Macros have been disabled - Click on "Option".
+2. Select 'Enable this content' and click'Ok'
+
+-------------------------
+Microsoft Excel 2010, 2013 and 2016
+-----------------------------------
+1. Security Warning : Macros have been disabled - Click on 'Enable Content'.
+--------------------------------------------------------
+
+---------------------------------------------------------------------------
+Unzip the File
+---------------------------------------------------------------------------
+1. Right Click on the Utility file downloaded from e-Filing Portal.
+2. Click on Extract All --> Select the Destination Folder --> Click on "Extract".
+3. Please use the extracted file to prepare the Income Tax Return.
+
