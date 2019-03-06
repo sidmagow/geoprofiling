@@ -1,0 +1,21 @@
+<html>
+<head>
+  <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="floating-panel">
+<label for="startPoint">Start:</label>
+<input type="text" name="startPoint" id="start" placeholder="Dwarka Sec 11"></input>
+<label for="endPoint">End:</label>
+<input type="text" name="endPoint" id="end" placeholder="Gurugram "></input>
+<input type="button" name="findRoute" id="find" value="Route"></input>
+</div>
+<div id="map"></div>
+<script src="script.js" type="text/javascript"></script>
+<!-- Replace the value of the key parameter with your own API key. -->
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBM_W7DKX4sAeomDVrVfEbTFPzwS-PikE&callback=initMap">
+</script>
+
+</body>
+</html>
