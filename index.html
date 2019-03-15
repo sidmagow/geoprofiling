@@ -1,0 +1,47 @@
+<html>
+<<head>
+<script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+<body>
+<script type="text/javascript">
+// setup some JSON to use
+var cars = [
+	{ "lat":"28.69972997", "lon":"77.27098032" },
+	{ "lat":"28.66212714", "lon":"77.04605714" },
+	{ "lat":"28.63762157","lon": "77.22413241" }
+];
+
+window.onload = function() {
+	// setup the button click
+	document.getElementById("theButton").onclick = function() {
+		doWork()
+	};
+}
+
+function doWork() {
+	// ajax the JSON to the server
+  $.ajax({
+      type:"POST",
+      url:"receiver",
+      data: JSON.stringify(cars),
+      cache: false,
+      datatype : "text/plain",
+      contentType:  "application/json",
+      processData: false,
+      success: function (res) {
+          console.log(res);
+      }
+  });
+	// stop link reloading the page
+ event.preventDefault();
+}
+</script>
+This will send data using AJAX to Python:<br /><br />
+<a href="" id="theButton">Click Me</a>
+</body>
+</html>
