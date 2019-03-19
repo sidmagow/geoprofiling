@@ -41,21 +41,18 @@
 	<div id="map"></div>
 	<!-- Replace the value of the key parameter with your own API key. -->
 	<script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwEYvqCmC4LKZ_eQzdyN8IKPzvxU0Tu2U&callback=initMap">
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBncnImM2L5Vzn2bwjkyNY1TC-JhAfMgJ4&callback=initMap">
 	</script>
 	<script type="text/javascript">
 		// setup some JSON to use
-		var cars = [{"lat": 28.60992046, "lon":  77.13843214},
-		{"lat": 28.69777376, "lon":  77.27248975},
-		{"lat": 28.68253, "lon":  76.91402}
-		];
 
 		var pointsArray = [];
+		var map;
 
 		function initMap() {
 			 var directionsService = new google.maps.DirectionsService;
 			 var directionsDisplay = new google.maps.DirectionsRenderer;
-			 var map = new google.maps.Map(document.getElementById('map'), {
+			 map = new google.maps.Map(document.getElementById('map'), {
 			   zoom: 12,
 			   center: {lat: 28.6139, lng: 77.2090}
 			 });
@@ -140,10 +137,36 @@
 	           processData: false,
 	           success: function (res) {
 	               var predict=JSON.parse(res)
+								 var dang=0;
+								 var mod=0;
+								 var safe=0;
 	               for(item in predict)
 	               {
 	               	   console.log(predict[item]['color']);
+										 if(predict[item]['color']=="red"){
+											 dang++;
+										 }
+										 else if (predict[item]['color']=="green") {
+											 safe++;
+
+										 }
+										 else{
+											 mod++;
+										 }
+										//  var point = new google.maps.Marker(
+										// 	 {
+										// 		 map: map,
+										// 		 position: pointsArray[item],
+										// 		 title: ''
+										//      //color: predict[item]['color']
+										// 	 }
+										//  );
 	               }
+								 var count=predict.length;
+								 var dang_per= (dang/count)*100;
+								 var mod_per= (mod/count)*100;
+								 var safe_per= (safe/count)*100;
+								 alert("Dangerous: "+dang_per+"%"+" Moderate: "+mod_per+"%"+" Safe: "+safe_per+"%");
 	           }
 
 	       });
