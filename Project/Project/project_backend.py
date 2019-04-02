@@ -7,6 +7,7 @@ import numpy as np
 from sklearn.cluster import KMeans as km
 import gmplot as gm
 import geocoder
+import webbrowser
 
 from flask import Flask, render_template, request, redirect, Response
 import random, json
@@ -98,6 +99,8 @@ def worker():
 	global mapno
 	gmap1.draw("pointsonrouteoutput"+str(mapno)+".html")
 	mapno=mapno+1
+	chrome_path="C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
+	webbrowser.get(chrome_path).open_new_tab("pointsonrouteoutput"+str(mapno-1)+".html")
 	return json.dumps(result)
 
 if __name__ == '__main__':
